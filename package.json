@@ -12,7 +12,6 @@
     "test:performance": "npm run lhci",
     "optimize:images": "node js/optimize-images.js",
     "optimize:css": "node js/optimize-css.js",
-    "optimize:js": "node js/optimize-js.js",
     "add:lazyload": "node js/add-lazyload.js",
     "generate-lockfile": "node generate-lockfile.js"
   },
@@ -33,8 +32,7 @@
     "lighthouse": "^10.0.0",
     "postcss": "^8.4.25",
     "purgecss": "^5.0.0",
-    "sharp": "^0.32.6",
-    "terser": "^5.18.0"
+    "sharp": "^0.32.6"
   },
   "engines": {
     "node": ">=18.0.0",
