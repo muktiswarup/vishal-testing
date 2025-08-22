@@ -31,28 +31,30 @@ jobs:
       - name: Copy files to optimized directory
         run: |
           cp -r *.php optimized/ 2>/dev/null || echo "No PHP files found"
-          cp -r *.html optimized/ 2>/dev/null || echo "No HTML files found"
           [ -d css ] && cp -r css optimized/ || echo "CSS directory not found"
           [ -d js ] && cp -r js optimized/ || echo "JS directory not found"
           [ -d images ] && cp -r images optimized/ || echo "Images directory not found"
           [ -d fonts ] && cp -r fonts optimized/ || echo "Fonts directory not found"
+          cp -r *.html optimized/ 2>/dev/null || echo "No HTML files found"
 
       - name: Minify HTML and PHP files
         run: |
           cd optimized
           find . \( -iname "*.html" -o -iname "*.php" \) -type f | while read -r file; do
-            echo "Minifying $file"
-            npx html-minifier-terser \
-              --collapse-whitespace \
-              --remove-comments \
-              --remove-optional-tags \
-              --remove-redundant-attributes \
-              --remove-script-type-attributes \
-              --remove-tag-whitespace \
-              --use-short-doctype \
-              --minify-css \
-              "$file" \
-              -o "$file"
+            if [ -f "$file" ]; then
+              echo "Minifying $file"
+              npx html-minifier-terser \
+                --collapse-whitespace \
+                --remove-comments \
+                --remove-optional-tags \
+                --remove-redundant-attributes \
+                --remove-script-type-attributes \
+                --remove-tag-whitespace \
+                --use-short-doctype \
+                --minify-css \
+                "$file" \
+                -o "$file"
+            fi
           done
 
       - name: Purge unused CSS
@@ -75,11 +77,11 @@ jobs:
           if [ -d css ]; then
             find css -iname "*.css" | while read -r file; do
               echo "Minifying CSS: $file"
-              npx cleancss -o "$file" "$file"
+              npx cleancss --output "$file" "$file"
             done
           fi
 
-      # 🚫 Skipping JS minification on purpose
+      # 🚫 No JS minification step
 
       - name: Generate Responsive Images
         run: node js/resize-images.js
@@ -91,12 +93,48 @@ jobs:
         run: node js/replace-img-with-picture.js
 
       - name: Add Lazy Loading to Images
-        run: node js/add-lazy-loading.js
+        run: |
+          cd optimized
+          find . \( -iname "*.html" -o -iname "*.php" \) -type f | while read -r file; do
+            echo "Adding lazy loading to: $file"
+            node -e "
+              const fs = require('fs');
+              const cheerio = require('cheerio');
+              try {
+                let html = fs.readFileSync('$file', 'utf8');
+                const \$ = cheerio.load(html, { decodeEntities: false });
+                \$('img').each((_, el) => {
+                  const \$img = \$(el);
+                  if (!\$img.attr('loading')) { \$img.attr('loading', 'lazy'); }
+                  if (!\$img.attr('decoding')) { \$img.attr('decoding', 'async'); }
+                });
+                fs.writeFileSync('$file', \$.html());
+              } catch (error) {
+                console.log('Error processing $file:', error.message);
+              }
+            "
+          done
 
       - name: Add preload for critical resources
-        run: node js/add-preload.js
+        run: |
+          cd optimized
+          find . \( -iname "*.html" -o -iname "*.php" \) -type f | while read -r file; do
+            echo "Adding preload links to: $file"
+            node -e "
+              const fs = require('fs');
+              const cheerio = require('cheerio');
+              try {
+                let html = fs.readFileSync('$file', 'utf8');
+                const \$ = cheerio.load(html, { decodeEntities: false });
+                if (\$('link[rel=\"stylesheet\"]').length > 0) {
+                  \$('link[rel=\"stylesheet\"]').first().before('<link rel=\"preload\" href=\"css/style.css\" as=\"style\" onload=\"this.onload=null;this.rel=\\\"stylesheet\\\"\">');
+                }
+                fs.writeFileSync('$file', \$.html());
+              } catch (error) { console.log('Error processing $file:', error.message); }
+            "
+          done
 
-      - name: Add font-display: swap to CSS fonts
+      - name: "Add font-display: swap to CSS fonts"
         run: node js/add-font-display-swap.js
 
       - name: Add width and height attributes to images
@@ -113,10 +151,10 @@ jobs:
           echo "Generated on: $(date)" >> optimization-report.md
           echo "" >> optimization-report.md
           echo "## File Counts:" >> optimization-report.md
-          echo "- PHP files: $(find . -name "*.php" | wc -l)" >> optimization-report.md
-          echo "- CSS files: $(find . -name "*.css" | wc -l)" >> optimization-report.md
-          echo "- JS files: $(find . -name "*.js" | wc -l)" >> optimization-report.md
-          echo "- Images: $(find images -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | wc -l)" >> optimization-report.md
+          echo "- PHP files: $(find . -name \"*.php\" | wc -l)" >> optimization-report.md
+          echo "- CSS files: $(find . -name \"*.css\" | wc -l)" >> optimization-report.md
+          echo "- JS files: $(find . -name \"*.js\" | wc -l)" >> optimization-report.md
+          echo "- Images: $(find images -type f \( -iname \"*.jpg\" -o -iname \"*.jpeg\" -o -iname \"*.png\" -o -iname \"*.webp\" \) | wc -l)" >> optimization-report.md
           echo "" >> optimization-report.md
           echo "## Total Size:" >> optimization-report.md
           echo "- Total size: $(du -sh . | cut -f1)" >> optimization-report.md
