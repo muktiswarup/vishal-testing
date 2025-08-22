@@ -19,18 +19,17 @@ async function addDimensions() {
 
     const imgs = $("img");
     for (let i = 0; i < imgs.length; i++) {
-      const img = imgs[i];
-      const $img = $(img);
+      const $img = $(imgs[i]);
+      const src = $img.attr("src");
+      if (!src || /^https?:\/\//i.test(src)) continue; // skip external
 
       if (!$img.attr("width") || !$img.attr("height")) {
-        let src = $img.attr("src");
-        if (!src) continue;
+        // Resolve relative or absolute paths
+        const cleanSrc = src.split("?")[0].split("#")[0];
+        const imgPath = src.startsWith("/")
+          ? path.join(projectRoot, cleanSrc)
+          : path.resolve(path.dirname(file), cleanSrc);
 
-        // Resolve relative to file location
-        const imgPath = path.resolve(
-          path.dirname(file),
-          src.split("?")[0].split("#")[0]
-        );
         if (!fs.existsSync(imgPath)) continue;
 
         try {
@@ -41,14 +40,14 @@ async function addDimensions() {
             modified = true;
           }
         } catch {
-          // ignore errors for missing or unreadable images
+          // ignore invalid/unreadable images
         }
       }
     }
 
     if (modified) {
       fs.writeFileSync(file, $.html(), "utf8");
-      console.log(`Updated dimensions in: ${file}`);
+      console.log(`✅ Updated dimensions in: ${file}`);
     }
   }
 }

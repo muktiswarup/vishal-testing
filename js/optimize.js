@@ -9,8 +9,6 @@ const purgecss = require("@fullhuman/postcss-purgecss");
 const cssnano = require("cssnano");
 const sharp = require("sharp");
 const imagemin = require("imagemin");
-const imageminWebp = require("imagemin-webp");
-const imageminAvif = require("imagemin-avif");
 const imageminMozjpeg = require("imagemin-mozjpeg");
 const imageminPngquant = require("imagemin-pngquant");
 
@@ -52,9 +50,7 @@ async function minifyHtmlPhpFiles() {
 
 async function processCssFiles() {
   const cssFiles = glob.sync(`${OUT_DIR}/**/*.css`);
-  const contentFiles = glob.sync(`${OUT_DIR}/**/*.{html,php,js}`, {
-    nodir: true,
-  });
+  const contentFiles = glob.sync(`${OUT_DIR}/**/*.{html,php,js}`, { nodir: true });
 
   const purge = purgecss({
     content: contentFiles,
@@ -87,9 +83,7 @@ async function processCssFiles() {
 }
 
 async function optimizeImages() {
-  const imgFiles = glob.sync(`${OUT_DIR}/images/**/*.{png,jpg,jpeg}`, {
-    nodir: true,
-  });
+  const imgFiles = glob.sync(`${OUT_DIR}/images/**/*.{png,jpg,jpeg}`, { nodir: true });
   await Promise.all(
     imgFiles.map(async (srcPath) => {
       const dir = path.dirname(srcPath);
@@ -124,6 +118,45 @@ async function optimizeImages() {
   );
 }
 
+async function addImageDimensions() {
+  const files = glob.sync(`${OUT_DIR}/**/*.{html,php}`);
+  for (const file of files) {
+    let html = await fs.readFile(file, "utf8");
+    const $ = cheerio.load(html, { decodeEntities: false });
+    let modified = false;
+
+    const imgs = $("img");
+    for (let i = 0; i < imgs.length; i++) {
+      const img = imgs[i];
+      const $img = $(img);
+
+      if (!$img.attr("width") || !$img.attr("height")) {
+        let src = $img.attr("src");
+        if (!src) continue;
+
+        const imgPath = path.resolve(path.dirname(file), src.split("?")[0].split("#")[0]);
+        if (!fs.existsSync(imgPath)) continue;
+
+        try {
+          const metadata = await sharp(imgPath).metadata();
+          if (metadata.width && metadata.height) {
+            $img.attr("width", metadata.width);
+            $img.attr("height", metadata.height);
+            modified = true;
+          }
+        } catch {
+          // ignore errors for missing/unreadable images
+        }
+      }
+    }
+
+    if (modified) {
+      await fs.writeFile(file, $.html(), "utf8");
+      console.log(`Added dimensions in: ${file}`);
+    }
+  }
+}
+
 async function transformHtmlImages() {
   const htmlFiles = glob.sync(`${OUT_DIR}/**/*.{html,php}`);
   await Promise.all(
@@ -148,6 +181,7 @@ async function main() {
   await processCssFiles();
   // 🚫 Removed JS minify step
   await optimizeImages();
+  await addImageDimensions();
   await transformHtmlImages();
   console.log("✅ Optimization complete (without JS minify).");
 }
