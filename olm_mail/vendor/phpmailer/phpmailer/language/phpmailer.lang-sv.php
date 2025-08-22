@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Swedish PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Johan Linnér <johan@linner.biz>
- */
+ * @author Johan Linnér <johan@linner.biz--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP fel: Kunde inte autentisera.';
 $PHPMAILER_LANG['connect_host']         = 'SMTP fel: Kunde inte ansluta till SMTP-server.';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP Connect() misslyckades.';
 $PHPMAILER_LANG['smtp_error']           = 'SMTP serverfel: ';
 $PHPMAILER_LANG['variable_set']         = 'Kunde inte definiera eller återställa variabel: ';
 $PHPMAILER_LANG['extension_missing']    = 'Tillägg ej tillgängligt: ';
+</body></html>

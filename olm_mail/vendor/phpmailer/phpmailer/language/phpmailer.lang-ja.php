@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Japanese PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Mitsuhiro Yoshida <http://mitstek.com/>
- * @author Yoshi Sakai <http://bluemooninc.jp/>
+ * @author Mitsuhiro Yoshida <http://mitstek.com/--><html><head></head><body>* @author Yoshi Sakai <http: bluemooninc.jp="">
  */
 
 $PHPMAILER_LANG['authenticate']         = 'SMTPエラー: 認証できませんでした。';
@@ -26,3 +25,4 @@ $PHPMAILER_LANG['recipients_failed']    = 'SMTPエラー: 次の受信者アド�
 //$PHPMAILER_LANG['smtp_error']           = 'SMTP server error: ';
 //$PHPMAILER_LANG['variable_set']         = 'Cannot set or reset variable: ';
 //$PHPMAILER_LANG['extension_missing']    = 'Extension missing: ';
+</http:></body></html>

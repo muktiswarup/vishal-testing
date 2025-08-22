@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, noarchive">
     <meta name="format-detection" content="telephone=no">
     <title>Transfonter demo</title>
-    <link href="stylesheet.css" rel="stylesheet">
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel=" stylesheet""=""><link href="stylesheet.css" rel="stylesheet">
     <style>
         /*
         http://meyerweb.com/eric/tools/css/reset/
@@ -165,13 +163,12 @@
     font-weight: normal;
     font-style: normal;
 }</pre>
-        <pre title="Preload (optional)">
-&lt;link rel=&quot;preload&quot; href=&quot;Blastimo-Regular.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;</pre>
+        <pre title="Preload (optional)">&lt;link rel="preload" href="Blastimo-Regular.woff2" as="font" type="font/woff2" crossorigin&gt;</pre>
         <div class="font-container" style="font-family: 'Blastimo'; font-weight: normal; font-style: normal;">
             <p class="letters">
                 abcdefghijklmnopqrstuvwxyz<br>
 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-                0123456789.:,;()*!?'@#&lt;&gt;$%&^+-=~
+                0123456789.:,;()*!?'@#&lt;&gt;$%&amp;^+-=~
             </p>
             <p class="s10" style="font-size: 10px;">The quick brown fox jumps over the lazy dog.</p>
             <p class="s11" style="font-size: 11px;">The quick brown fox jumps over the lazy dog.</p>
@@ -188,5 +185,6 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
     </div>
 
 </div>
-</body>
-</html>
+
+
+</body></html>

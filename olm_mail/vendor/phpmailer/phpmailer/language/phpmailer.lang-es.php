@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Spanish PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Matt Sturdy <matt.sturdy@gmail.com>
- */
+ * @author Matt Sturdy <matt.sturdy@gmail.com--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'Error SMTP: Imposible autentificar.';
 $PHPMAILER_LANG['connect_host']         = 'Error SMTP: Imposible conectar al servidor SMTP.';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP Connect() falló.';
 $PHPMAILER_LANG['smtp_error']           = 'Error del servidor SMTP: ';
 $PHPMAILER_LANG['variable_set']         = 'No se pudo configurar la variable: ';
 $PHPMAILER_LANG['extension_missing']    = 'Extensión faltante: ';
+</body></html>

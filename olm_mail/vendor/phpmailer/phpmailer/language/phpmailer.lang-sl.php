@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Slovene PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Klemen Tušar <techouse@gmail.com>
- * @author Filip Š <projects@filips.si>
+ * @author Klemen Tušar <techouse@gmail.com--><html><head></head><body>* @author Filip Š <projects@filips.si>
  * @author Blaž Oražem <blaz@orazem.si>
  */
 
@@ -29,3 +28,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'Ne morem vzpostaviti povezave s SMTP 
 $PHPMAILER_LANG['smtp_error']           = 'Napaka SMTP strežnika: ';
 $PHPMAILER_LANG['variable_set']         = 'Ne morem nastaviti oz. ponastaviti spremenljivke: ';
 $PHPMAILER_LANG['extension_missing']    = 'Manjkajoča razširitev: ';
+</blaz@orazem.si></projects@filips.si></body></html>

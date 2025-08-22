@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Ukrainian PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Yuriy Rudyy <yrudyy@prs.net.ua>
- * @fixed by Boris Yurchenko <boris@yurchenko.pp.ua>
+ * @author Yuriy Rudyy <yrudyy@prs.net.ua--><html><head></head><body>* @fixed by Boris Yurchenko <boris@yurchenko.pp.ua>
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Помилка SMTP: помилка авторизації.';
@@ -26,3 +25,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'Помилка з\'єднання з 
 $PHPMAILER_LANG['smtp_error']           = 'Помилка SMTP-сервера: ';
 $PHPMAILER_LANG['variable_set']         = 'Неможливо встановити або скинути змінну: ';
 $PHPMAILER_LANG['extension_missing']    = 'Розширення відсутнє: ';
+</boris@yurchenko.pp.ua></body></html>

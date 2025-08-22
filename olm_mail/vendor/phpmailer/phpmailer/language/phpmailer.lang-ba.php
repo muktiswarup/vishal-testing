@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Bosnian PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Ermin Islamagić <ermin@islamagic.com>
- */
+ * @author Ermin Islamagić <ermin@islamagic.com--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP Greška: Neuspjela prijava.';
 $PHPMAILER_LANG['connect_host']         = 'SMTP Greška: Nije moguće spojiti se sa SMTP serverom.';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'Spajanje na SMTP server nije uspjelo.
 $PHPMAILER_LANG['smtp_error']           = 'SMTP greška: ';
 $PHPMAILER_LANG['variable_set']         = 'Nije moguće postaviti varijablu ili je vratiti nazad: ';
 $PHPMAILER_LANG['extension_missing']    = 'Nedostaje ekstenzija: ';
+</body></html>

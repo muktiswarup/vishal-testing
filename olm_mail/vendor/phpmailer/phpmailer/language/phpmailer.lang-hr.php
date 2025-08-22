@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Croatian PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Hrvoj3e <hrvoj3e@gmail.com>
- */
+ * @author Hrvoj3e <hrvoj3e@gmail.com--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP Greška: Neuspjela autentikacija.';
 $PHPMAILER_LANG['connect_host']         = 'SMTP Greška: Ne mogu se spojiti na SMTP poslužitelj.';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'Spajanje na SMTP poslužitelj nije us
 $PHPMAILER_LANG['smtp_error']           = 'Greška SMTP poslužitelja: ';
 $PHPMAILER_LANG['variable_set']         = 'Ne mogu postaviti varijablu niti ju vratiti nazad: ';
 $PHPMAILER_LANG['extension_missing']    = 'Nedostaje proširenje: ';
+</body></html>

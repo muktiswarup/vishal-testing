@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Dutch PHPMailer language file: refer to PHPMailer.php for definitive list.
  * @package PHPMailer
- * @author Tuxion <team@tuxion.nl>
- */
+ * @author Tuxion <team@tuxion.nl--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP-fout: authenticatie mislukt.';
 $PHPMAILER_LANG['connect_host']         = 'SMTP-fout: kon niet verbinden met SMTP-host.';
@@ -27,3 +26,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP Verbinding mislukt.';
 $PHPMAILER_LANG['smtp_error']           = 'SMTP-serverfout: ';
 $PHPMAILER_LANG['variable_set']         = 'Kan de volgende variabele niet instellen of resetten: ';
 $PHPMAILER_LANG['extension_missing']    = 'Extensie afwezig: ';
+</body></html>

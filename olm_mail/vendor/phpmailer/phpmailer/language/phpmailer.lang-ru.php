@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Russian PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Alexey Chumakov <alex@chumakov.ru>
- * @author Foster Snowhill <i18n@forstwoof.ru>
+ * @author Alexey Chumakov <alex@chumakov.ru--><html><head></head><body>* @author Foster Snowhill <i18n@forstwoof.ru>
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Ошибка SMTP: ошибка авторизации.';
@@ -26,3 +25,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'Ошибка соединения с 
 $PHPMAILER_LANG['smtp_error']           = 'Ошибка SMTP-сервера: ';
 $PHPMAILER_LANG['variable_set']         = 'Невозможно установить или сбросить переменную: ';
 $PHPMAILER_LANG['extension_missing']    = 'Расширение отсутствует: ';
+</i18n@forstwoof.ru></body></html>

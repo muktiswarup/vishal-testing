@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Romanian PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Alex Florea <alecz.fia@gmail.com>
- */
+ * @author Alex Florea <alecz.fia@gmail.com--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'Eroare SMTP: Autentificarea a eșuat.';
 $PHPMAILER_LANG['connect_host']         = 'Eroare SMTP: Conectarea la serverul SMTP a eșuat.';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'Conectarea la serverul SMTP a eșuat.
 $PHPMAILER_LANG['smtp_error']           = 'Eroare server SMTP: ';
 $PHPMAILER_LANG['variable_set']         = 'Nu se poate seta/reseta variabila. ';
 $PHPMAILER_LANG['extension_missing']    = 'Lipsește extensia: ';
+</body></html>

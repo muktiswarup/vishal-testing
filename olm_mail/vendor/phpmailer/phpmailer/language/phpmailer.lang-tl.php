@@ -1,11 +1,10 @@
-<?php
+<!--?php
 
 /**
  * Tagalog PHPMailer language file: refer to English translation for definitive list
  *
  *   @package PHPMailer
- *   @author Adriane Justine Tan <eidoriantan@gmail.com>
- */
+ *   @author Adriane Justine Tan <eidoriantan@gmail.com--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP Error: Hindi mapatotohanan.';
 $PHPMAILER_LANG['connect_host']         = 'SMTP Error: Hindi makakonekta sa SMTP host.';
@@ -26,3 +25,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'Ang SMTP connect() ay nabigo.';
 $PHPMAILER_LANG['smtp_error']           = 'Ang server ng SMTP ay nabigo: ';
 $PHPMAILER_LANG['variable_set']         = 'Hindi matatakda o ma-reset ang mga variables: ';
 $PHPMAILER_LANG['extension_missing']    = 'Nawawala ang extension: ';
+</body></html>

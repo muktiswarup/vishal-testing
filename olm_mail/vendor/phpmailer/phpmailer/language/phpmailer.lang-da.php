@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Danish PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author John Sebastian <jms@iwb.dk>
- * Rewrite and extension of the work by Mikael Stokkebro <info@stokkebro.dk>
+ * @author John Sebastian <jms@iwb.dk--><html><head></head><body>* Rewrite and extension of the work by Mikael Stokkebro <info@stokkebro.dk>
  *
  */
 
@@ -27,3 +26,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP Connect() fejlede.';
 $PHPMAILER_LANG['smtp_error']           = 'SMTP server fejl: ';
 $PHPMAILER_LANG['variable_set']         = 'Kunne ikke definere eller nulstille variablen: ';
 $PHPMAILER_LANG['extension_missing']    = 'Udvidelse mangler: ';
+</info@stokkebro.dk></body></html>

@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Galician PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author by Donato Rouco <donatorouco@gmail.com>
- */
+ * @author by Donato Rouco <donatorouco@gmail.com--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'Erro SMTP: Non puido ser autentificado.';
 $PHPMAILER_LANG['connect_host']         = 'Erro SMTP: Non puido conectar co servidor SMTP.';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP Connect() fallou.';
 $PHPMAILER_LANG['smtp_error']           = 'Erro do servidor SMTP: ';
 $PHPMAILER_LANG['variable_set']         = 'Non puidemos axustar ou reaxustar a variábel: ';
 //$PHPMAILER_LANG['extension_missing']    = 'Extension missing: ';
+</body></html>

@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Hindi PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Yash Karanke <mr.karanke@gmail.com>
- */
+ * @author Yash Karanke <mr.karanke@gmail.com--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP त्रुटि: प्रामाणिकता की जांच नहीं हो सका। ';
 $PHPMAILER_LANG['connect_host']         = 'SMTP त्रुटि: SMTP सर्वर से कनेक्ट नहीं हो सका। ';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP का connect () फ़ंक�
 $PHPMAILER_LANG['smtp_error']           = 'SMTP सर्वर त्रुटि। ';
 $PHPMAILER_LANG['variable_set']         = 'चर को बना या संशोधित नहीं किया जा सकता। ';
 $PHPMAILER_LANG['extension_missing']    = 'एक्सटेन्षन गायब है: ';
+</body></html>

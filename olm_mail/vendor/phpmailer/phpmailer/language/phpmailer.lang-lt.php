@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Lithuanian PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Dainius Kaupaitis <dk@sum.lt>
- */
+ * @author Dainius Kaupaitis <dk@sum.lt--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP klaida: autentifikacija nepavyko.';
 $PHPMAILER_LANG['connect_host']         = 'SMTP klaida: nepavyksta prisijungti prie SMTP stoties.';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP susijungimo klaida';
 $PHPMAILER_LANG['smtp_error']           = 'SMTP stoties klaida: ';
 $PHPMAILER_LANG['variable_set']         = 'Nepavyko priskirti reikšmės kintamajam: ';
 //$PHPMAILER_LANG['extension_missing']    = 'Extension missing: ';
+</body></html>

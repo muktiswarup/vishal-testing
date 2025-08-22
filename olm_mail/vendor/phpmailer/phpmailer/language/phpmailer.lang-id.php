@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Indonesian PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Cecep Prawiro <cecep.prawiro@gmail.com>
- * @author @januridp
+ * @author Cecep Prawiro <cecep.prawiro@gmail.com--><html><head></head><body>* @author @januridp
  * @author Ian Mustafa <mail@ianmustafa.com>
  */
 
@@ -29,3 +28,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP Connect() gagal.';
 $PHPMAILER_LANG['smtp_error']           = 'Kesalahan pada pelayan SMTP: ';
 $PHPMAILER_LANG['variable_set']         = 'Tidak dapat mengatur atau mengatur ulang variabel: ';
 $PHPMAILER_LANG['extension_missing']    = 'Ekstensi PHP tidak tersedia: ';
+</mail@ianmustafa.com></body></html>

@@ -1,11 +1,10 @@
-<!-- header-blcok -->
-<header>
+<!-- header-blcok --><html><head></head><body><header>
 
 <div class="header-block">
 <div class="header-dtls container">
 <div class="header-lt">
 <a href="index.php" aria-label="sanjivini">
-<img src="images/sanjivini.png" alt="img" title="img" loading="lazy">
+<picture><source srcset="images/320w/sanjivini_320w.webp" media="(max-width: 320px)" type="image/webp"><source srcset="images/640w/sanjivini_640w.webp" media="(max-width: 640px)" type="image/webp"><source srcset="images/1024w/sanjivini_1024w.webp" media="(max-width: 1024px)" type="image/webp"><source srcset="images/1920w/sanjivini_1920w.webp" media="(max-width: 1920px)" type="image/webp"><img src="images/sanjivini.webp" alt="img" title="img" loading="lazy" decoding="async" width="200" height="90"></picture>
 </a>
 </div>
 <div class="phone">
@@ -43,4 +42,4 @@
 
 </header>
 
-<div class="side_bar"></div>
+<div class="side_bar"></div></body></html>

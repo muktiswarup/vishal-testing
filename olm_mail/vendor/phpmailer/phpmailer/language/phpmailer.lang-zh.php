@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Traditional Chinese PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author liqwei <liqwei@liqwei.com>
- * @author Peter Dave Hello <@PeterDaveHello/>
+ * @author liqwei <liqwei@liqwei.com--><html><head></head><body>* @author Peter Dave Hello &lt;@PeterDaveHello/&gt;
  * @author Jason Chiang <xcojad@gmail.com>
  */
 
@@ -27,3 +26,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP 連線失敗';
 $PHPMAILER_LANG['smtp_error']           = 'SMTP 伺服器錯誤: ';
 $PHPMAILER_LANG['variable_set']         = '無法設定或重設變數: ';
 $PHPMAILER_LANG['extension_missing']    = '遺失模組 Extension: ';
+</xcojad@gmail.com></body></html>

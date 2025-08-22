@@ -1,4 +1,4 @@
-<?php
+<!--?php
 $ref = $_SERVER['HTTP_REFERER'];
 
 //  db connection 
@@ -30,15 +30,14 @@ $isd = $_POST['lccode']." ";
 
 
 $data = <<<EOF
-Name: $name <br/>
-Country Code : $isd <br/>
-Phone No: $phone <br/>
-Email: $email <br/>
-Intrested In: $intrest <br/>
-UTM_SOURCE : $utm_source <br/>
-UTM_MEDIUM : $utm_medium <br/>
-UTM_CAMPIAGN : $utm_campaign <br/>
-FULL_URL : $fullurl<br/>
+Name: $name <br/--><html><head></head><body>Country Code : $isd <br>
+Phone No: $phone <br>
+Email: $email <br>
+Intrested In: $intrest <br>
+UTM_SOURCE : $utm_source <br>
+UTM_MEDIUM : $utm_medium <br>
+UTM_CAMPIAGN : $utm_campaign <br>
+FULL_URL : $fullurl<br>
 Time: $ptime
 EOF;
 
@@ -76,24 +75,24 @@ error_reporting(E_ALL);
 
 
 $dataNew = array(
-"UID" => "fourqt",
-"PWD" => "wn9mxO76f34=",
-"f" => "m",
-"ISD" => $isd,
-"con" => $phone,
-"email" => $email,
-"name" => $name,
-"url" => "@url",
-// "Remark" => $Remark,
-// "Proj" => $proj,
-"src" => "Website",
-"amob" => "",
-"city" => "",
-"location" => "",
-"ch" => "MS",
-"utm_source" => $utm_source,
-"utm_medium" => $utm_medium,
-"utm_camp" => $utm_campaign,
+"UID" =&gt; "fourqt",
+"PWD" =&gt; "wn9mxO76f34=",
+"f" =&gt; "m",
+"ISD" =&gt; $isd,
+"con" =&gt; $phone,
+"email" =&gt; $email,
+"name" =&gt; $name,
+"url" =&gt; "@url",
+// "Remark" =&gt; $Remark,
+// "Proj" =&gt; $proj,
+"src" =&gt; "Website",
+"amob" =&gt; "",
+"city" =&gt; "",
+"location" =&gt; "",
+"ch" =&gt; "MS",
+"utm_source" =&gt; $utm_source,
+"utm_medium" =&gt; $utm_medium,
+"utm_camp" =&gt; $utm_campaign,
 );
 header("Location:https://vishalprojects.com/vishal-sanjivini/4bhk-luxury-villas-in-tukkuguda-hyderabad/thankyou.php");
 
@@ -102,24 +101,24 @@ $parm = http_build_query($dataNew) ;
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-CURLOPT_URL => 'https://vishalprojects07.realeasy.in/IVR_Inbound.aspx?' . $parm,
-CURLOPT_RETURNTRANSFER => true,
-CURLOPT_ENCODING => '',
-CURLOPT_MAXREDIRS => 10,
-CURLOPT_TIMEOUT => 0,
-CURLOPT_FOLLOWLOCATION => true,
-CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-CURLOPT_CUSTOMREQUEST => 'GET',
+CURLOPT_URL =&gt; 'https://vishalprojects07.realeasy.in/IVR_Inbound.aspx?' . $parm,
+CURLOPT_RETURNTRANSFER =&gt; true,
+CURLOPT_ENCODING =&gt; '',
+CURLOPT_MAXREDIRS =&gt; 10,
+CURLOPT_TIMEOUT =&gt; 0,
+CURLOPT_FOLLOWLOCATION =&gt; true,
+CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST =&gt; 'GET',
 ));
 
 // echo $parm;
-// echo "<br/><br/>";
+// echo "<br><br>";
 
 $response = curl_exec($curl);
 
 curl_close($curl);
 // echo $response;
-// echo "<br/><br/>";
+// echo "<br><br>";
 
 // new apai ends
 
@@ -133,14 +132,14 @@ $response = $_POST["token"];
 $ch = curl_init();
 
 curl_setopt_array($ch, [
-CURLOPT_URL => 'https://www.google.com/recaptcha/api/siteverify',
-CURLOPT_POST => true,
-CURLOPT_POSTFIELDS => [
-'secret' => '6LeLkE4pAAAAAKH92z0-XWctGtdxzylLT3nYUjXP',
-'response' => $_POST["token"],
-'remoteip' => $_SERVER['REMOTE_ADDR']
+CURLOPT_URL =&gt; 'https://www.google.com/recaptcha/api/siteverify',
+CURLOPT_POST =&gt; true,
+CURLOPT_POSTFIELDS =&gt; [
+'secret' =&gt; '6LeLkE4pAAAAAKH92z0-XWctGtdxzylLT3nYUjXP',
+'response' =&gt; $_POST["token"],
+'remoteip' =&gt; $_SERVER['REMOTE_ADDR']
 ],
-CURLOPT_RETURNTRANSFER => true
+CURLOPT_RETURNTRANSFER =&gt; true
 ]);
 
 $output = curl_exec($ch);
@@ -148,9 +147,9 @@ curl_close($ch);
 
 $json = json_decode($output);
 
-if ($json->success==false) {
+if ($json-&gt;success==false) {
 echo "Captcha Verification Failed";
-} else if ($json->success==true) {
+} else if ($json-&gt;success==true) {
 
 
 $mail = new PHPMailer(true);
@@ -158,32 +157,32 @@ $mail = new PHPMailer(true);
 try {
     
 // Server settings
-$mail->SMTPDebug = SMTP::DEBUG_OFF;
-$mail->isSMTP();
-$mail->Host = 'smtp.office365.com';
-$mail->SMTPAuth = true;
-$mail->Username = 'sales@vishalprojects.com';
-$mail->Password = 'Sa@12345';
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port = 587;
+$mail-&gt;SMTPDebug = SMTP::DEBUG_OFF;
+$mail-&gt;isSMTP();
+$mail-&gt;Host = 'smtp.office365.com';
+$mail-&gt;SMTPAuth = true;
+$mail-&gt;Username = 'sales@vishalprojects.com';
+$mail-&gt;Password = 'Sa@12345';
+$mail-&gt;SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+$mail-&gt;Port = 587;
 
 
 
-$mail->SetFrom("sales@vishalprojects.com", 'Vishal Sanjivini');
+$mail-&gt;SetFrom("sales@vishalprojects.com", 'Vishal Sanjivini');
 
 
 
-// $mail->AddAddress('tilakprabhu@grank.co.in', 'Vishal Sanjivini');
-$mail->AddAddress('sales@vishalprojects.com', 'Vishal Sanjivini');
-$mail->AddBCC('leadtest@grank.co.in', 'Vishal Sanjivini');
-$mail->AddCC('sandip@grank.co.in', 'Vishal Sanjivini');
-$mail->AddBCC('leadtest.grank@gmail.com', 'Vishal Sanjivini');
-$mail->AddBCC('chethankumar@grank.co.in', 'Vishal Sanjivini');
+// $mail-&gt;AddAddress('tilakprabhu@grank.co.in', 'Vishal Sanjivini');
+$mail-&gt;AddAddress('sales@vishalprojects.com', 'Vishal Sanjivini');
+$mail-&gt;AddBCC('leadtest@grank.co.in', 'Vishal Sanjivini');
+$mail-&gt;AddCC('sandip@grank.co.in', 'Vishal Sanjivini');
+$mail-&gt;AddBCC('leadtest.grank@gmail.com', 'Vishal Sanjivini');
+$mail-&gt;AddBCC('chethankumar@grank.co.in', 'Vishal Sanjivini');
 
 
-$mail->isHTML(true);    //Set email format to HTML
-$mail->Subject = 'Lead From Vishal sanjivini Website';
-$mail->Body = $data;
+$mail-&gt;isHTML(true);    //Set email format to HTML
+$mail-&gt;Subject = 'Lead From Vishal sanjivini Website';
+$mail-&gt;Body = $data;
 
 $filename = "live_data1.csv";
 $f_data= "\r\n"."$name, $email, $phone, $intrest, $utm_source, $utm_medium,$utm_campaign,  $ptime, $isd";
@@ -191,11 +190,11 @@ $file = fopen($filename, "a");
 fwrite($file,$f_data);
 fclose($file);
 } 
-catch (Exception $e) {  echo "Message could not be sent 1.<a href='https://vishalprojects.com/vishal-sanjivini/4bhk-luxury-villas-in-tukkuguda-hyderabad'>Go to Home Page</a>"; }
-catch (\Exception $e) { echo "Message could not be sent 2.<a href='https://vishalprojects.com/vishal-sanjivini/4bhk-luxury-villas-in-tukkuguda-hyderabad/'>Go to Home Page</a>"; 
+catch (Exception $e) {  echo "Message could not be sent 1.<a href="https://vishalprojects.com/vishal-sanjivini/4bhk-luxury-villas-in-tukkuguda-hyderabad">Go to Home Page</a>"; }
+catch (\Exception $e) { echo "Message could not be sent 2.<a href="https://vishalprojects.com/vishal-sanjivini/4bhk-luxury-villas-in-tukkuguda-hyderabad/">Go to Home Page</a>"; 
 }
 
-if ($mail->Send()) { 
+if ($mail-&gt;Send()) { 
 
 }
 
@@ -216,4 +215,5 @@ mysqli_stmt_execute($stmt);
 }
 
 
-?>
+?&gt;
+</body></html>

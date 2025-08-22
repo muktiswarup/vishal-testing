@@ -1,4 +1,4 @@
-<?php
+<!--?php
 
 
 
@@ -25,35 +25,34 @@ use Composer\Semver\VersionParser;
 class InstalledVersions
 {
 private static $installed = array (
-  'root' => 
-  array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
-    'aliases' => 
+  'root' =--><html><head></head><body>array (
+    'pretty_version' =&gt; '1.0.0+no-version-set',
+    'version' =&gt; '1.0.0.0',
+    'aliases' =&gt; 
     array (
     ),
-    'reference' => NULL,
-    'name' => '__root__',
+    'reference' =&gt; NULL,
+    'name' =&gt; '__root__',
   ),
-  'versions' => 
+  'versions' =&gt; 
   array (
-    '__root__' => 
+    '__root__' =&gt; 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
-      'aliases' => 
+      'pretty_version' =&gt; '1.0.0+no-version-set',
+      'version' =&gt; '1.0.0.0',
+      'aliases' =&gt; 
       array (
       ),
-      'reference' => NULL,
+      'reference' =&gt; NULL,
     ),
-    'phpmailer/phpmailer' => 
+    'phpmailer/phpmailer' =&gt; 
     array (
-      'pretty_version' => 'v6.5.0',
-      'version' => '6.5.0.0',
-      'aliases' => 
+      'pretty_version' =&gt; 'v6.5.0',
+      'version' =&gt; '6.5.0.0',
+      'aliases' =&gt; 
       array (
       ),
-      'reference' => 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
+      'reference' =&gt; 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
     ),
   ),
 );
@@ -114,10 +113,10 @@ return false;
 
 public static function satisfies(VersionParser $parser, $packageName, $constraint)
 {
-$constraint = $parser->parseConstraints($constraint);
-$provided = $parser->parseConstraints(self::getVersionRanges($packageName));
+$constraint = $parser-&gt;parseConstraints($constraint);
+$provided = $parser-&gt;parseConstraints(self::getVersionRanges($packageName));
 
-return $provided->matches($constraint);
+return $provided-&gt;matches($constraint);
 }
 
 
@@ -278,7 +277,7 @@ self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegist
 $installed = array();
 
 if (self::$canGetVendors) {
-foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
+foreach (ClassLoader::getRegisteredLoaders() as $vendorDir =&gt; $loader) {
 if (isset(self::$installedByVendor[$vendorDir])) {
 $installed[] = self::$installedByVendor[$vendorDir];
 } elseif (is_file($vendorDir.'/composer/installed.php')) {
@@ -292,3 +291,4 @@ $installed[] = self::$installed;
 return $installed;
 }
 }
+</body></html>

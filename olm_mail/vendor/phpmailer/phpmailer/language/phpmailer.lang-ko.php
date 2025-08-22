@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Korean PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author ChalkPE <amato0617@gmail.com>
- */
+ * @author ChalkPE <amato0617@gmail.com--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP 오류: 인증할 수 없습니다.';
 $PHPMAILER_LANG['connect_host']         = 'SMTP 오류: SMTP 호스트에 접속할 수 없습니다.';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP 연결을 실패하였습니다.
 $PHPMAILER_LANG['smtp_error']           = 'SMTP 서버 오류: ';
 $PHPMAILER_LANG['variable_set']         = '변수 설정 및 초기화 불가: ';
 $PHPMAILER_LANG['extension_missing']    = '확장자 없음: ';
+</body></html>

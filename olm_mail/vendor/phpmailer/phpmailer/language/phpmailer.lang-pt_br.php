@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Brazilian Portuguese PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Paulo Henrique Garcia <paulo@controllerweb.com.br>
- * @author Lucas Guimarães <lucas@lucasguimaraes.com>
+ * @author Paulo Henrique Garcia <paulo@controllerweb.com.br--><html><head></head><body>* @author Lucas Guimarães <lucas@lucasguimaraes.com>
  * @author Phelipe Alves <phelipealvesdesouza@gmail.com>
  * @author Fabio Beneditto <fabiobeneditto@gmail.com>
  */
@@ -28,3 +27,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP Connect() falhou.';
 $PHPMAILER_LANG['smtp_error']           = 'Erro de servidor SMTP: ';
 $PHPMAILER_LANG['variable_set']         = 'Não foi possível definir ou redefinir a variável: ';
 $PHPMAILER_LANG['extension_missing']    = 'Extensão não existe: ';
+</fabiobeneditto@gmail.com></phelipealvesdesouza@gmail.com></lucas@lucasguimaraes.com></body></html>

@@ -1,33 +1,33 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
-    'aliases' => 
+<!--?php return array (
+  'root' =--><html><head></head><body>array (
+    'pretty_version' =&gt; '1.0.0+no-version-set',
+    'version' =&gt; '1.0.0.0',
+    'aliases' =&gt; 
     array (
     ),
-    'reference' => NULL,
-    'name' => '__root__',
+    'reference' =&gt; NULL,
+    'name' =&gt; '__root__',
   ),
-  'versions' => 
+  'versions' =&gt; 
   array (
-    '__root__' => 
+    '__root__' =&gt; 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
-      'aliases' => 
+      'pretty_version' =&gt; '1.0.0+no-version-set',
+      'version' =&gt; '1.0.0.0',
+      'aliases' =&gt; 
       array (
       ),
-      'reference' => NULL,
+      'reference' =&gt; NULL,
     ),
-    'phpmailer/phpmailer' => 
+    'phpmailer/phpmailer' =&gt; 
     array (
-      'pretty_version' => 'v6.5.0',
-      'version' => '6.5.0.0',
-      'aliases' => 
+      'pretty_version' =&gt; 'v6.5.0',
+      'version' =&gt; '6.5.0.0',
+      'aliases' =&gt; 
       array (
       ),
-      'reference' => 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
+      'reference' =&gt; 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
     ),
   ),
 );
+</body></html>

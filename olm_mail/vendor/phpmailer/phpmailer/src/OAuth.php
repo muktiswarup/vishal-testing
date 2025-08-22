@@ -1,4 +1,4 @@
-<?php
+<!--?php
 
 /**
  * PHPMailer - PHP email creation and transport class.
@@ -6,8 +6,7 @@
  *
  * @see       https://github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project
  *
- * @author    Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
- * @author    Jim Jagielski (jimjag) <jimjag@gmail.com>
+ * @author    Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk--><html><head></head><body>* @author    Jim Jagielski (jimjag) <jimjag@gmail.com>
  * @author    Andy Prevost (codeworxtech) <codeworxtech@users.sourceforge.net>
  * @author    Brent R. Matzelle (original founder)
  * @copyright 2012 - 2020 Marcus Bointon
@@ -86,11 +85,11 @@ class OAuth
      */
     public function __construct($options)
     {
-        $this->provider = $options['provider'];
-        $this->oauthUserEmail = $options['userName'];
-        $this->oauthClientSecret = $options['clientSecret'];
-        $this->oauthClientId = $options['clientId'];
-        $this->oauthRefreshToken = $options['refreshToken'];
+        $this-&gt;provider = $options['provider'];
+        $this-&gt;oauthUserEmail = $options['userName'];
+        $this-&gt;oauthClientSecret = $options['clientSecret'];
+        $this-&gt;oauthClientId = $options['clientId'];
+        $this-&gt;oauthRefreshToken = $options['refreshToken'];
     }
 
     /**
@@ -110,9 +109,9 @@ class OAuth
      */
     protected function getToken()
     {
-        return $this->provider->getAccessToken(
-            $this->getGrant(),
-            ['refresh_token' => $this->oauthRefreshToken]
+        return $this-&gt;provider-&gt;getAccessToken(
+            $this-&gt;getGrant(),
+            ['refresh_token' =&gt; $this-&gt;oauthRefreshToken]
         );
     }
 
@@ -124,16 +123,17 @@ class OAuth
     public function getOauth64()
     {
         //Get a new token if it's not available or has expired
-        if (null === $this->oauthToken || $this->oauthToken->hasExpired()) {
-            $this->oauthToken = $this->getToken();
+        if (null === $this-&gt;oauthToken || $this-&gt;oauthToken-&gt;hasExpired()) {
+            $this-&gt;oauthToken = $this-&gt;getToken();
         }
 
         return base64_encode(
             'user=' .
-            $this->oauthUserEmail .
+            $this-&gt;oauthUserEmail .
             "\001auth=Bearer " .
-            $this->oauthToken .
+            $this-&gt;oauthToken .
             "\001\001"
         );
     }
 }
+</phpmailer@synchromedia.co.uk></codeworxtech@users.sourceforge.net></jimjag@gmail.com></body></html>

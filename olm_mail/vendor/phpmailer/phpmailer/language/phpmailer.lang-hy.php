@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Armenian PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Hrayr Grigoryan <hrayr@bits.am>
- */
+ * @author Hrayr Grigoryan <hrayr@bits.am--><html><head></head><body>*/
 
 $PHPMAILER_LANG['authenticate']         = 'SMTP -ի սխալ: չհաջողվեց ստուգել իսկությունը.';
 $PHPMAILER_LANG['connect_host']         = 'SMTP -ի սխալ: չհաջողվեց կապ հաստատել SMTP սերվերի հետ.';
@@ -25,3 +24,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP -ի connect() ֆունկցիան
 $PHPMAILER_LANG['smtp_error']           = 'SMTP սերվերի սխալ: ';
 $PHPMAILER_LANG['variable_set']         = 'Չի հաջողվում ստեղծել կամ վերափոխել փոփոխականը: ';
 $PHPMAILER_LANG['extension_missing']    = 'Հավելվածը բացակայում է: ';
+</body></html>

@@ -1,6 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     
 <title>Thank you</title>
 <!-- Google Tag Manager -->
@@ -12,7 +10,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <!-- Google tag (gtag.js) --> 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3JBB60HCGL"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-3JBB60HCGL'); </script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3JBB60HCGL"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-3JBB60HCGL'); </script>
 <!-- Google tag (gtag.js) --> 
 
 
@@ -21,22 +19,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel=" stylesheet""=""><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="icon" type="image/x-icon" href="/assets/images/logo-header.png">
 <!-- SET: Stylesheet -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <link href="css/bootstrap4hack.css" rel="stylesheet" type="text/css">
 <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'">
-<link  href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" as="style" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" media="print" onload="this.media='all'">
 <link rel="preload" as="style" type="text/css" href="css/animate.css" media="print" onload="this.media='all'">
 <link rel="preload" as="style" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick.css" media="print" onload="this.media='all'">
-<link  rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css" media="print" onload="this.media='all'">
-<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link href="css/responsive.css" rel="stylesheet" type="text/css">
-<link  href="olm_otp/olm_styleotp.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'">
+<link href="olm_otp/olm_styleotp.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/index.css">
 
@@ -48,16 +46,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<?php include_once('header.php'); ?>
+<!--?php include_once('header.php'); ?-->
 
-<img src="images/hold2-desk.webp" alt="img" title="img" class="desk img-fluid" loading="lazy" >
-<img src="images/hold2.webp" alt="img" title="img" class="mob img-fluid" loading="lazy" >
+<picture><source srcset="images/320w/hold2-desk_320w.webp" media="(max-width: 320px)" type="image/webp"><source srcset="images/640w/hold2-desk_640w.webp" media="(max-width: 640px)" type="image/webp"><source srcset="images/1024w/hold2-desk_1024w.webp" media="(max-width: 1024px)" type="image/webp"><source srcset="images/1920w/hold2-desk_1920w.webp" media="(max-width: 1920px)" type="image/webp"><img src="images/hold2-desk.webp" alt="img" title="img" class="desk img-fluid" loading="lazy" decoding="async" width="1349" height="613"></picture>
+<picture><source srcset="images/320w/hold2_320w.webp" media="(max-width: 320px)" type="image/webp"><source srcset="images/640w/hold2_640w.webp" media="(max-width: 640px)" type="image/webp"><source srcset="images/1024w/hold2_1024w.webp" media="(max-width: 1024px)" type="image/webp"><source srcset="images/1920w/hold2_1920w.webp" media="(max-width: 1920px)" type="image/webp"><img src="images/hold2.webp" alt="img" title="img" class="mob img-fluid" loading="lazy" decoding="async" width="375" height="718"></picture>
 
 <section class="thankyou-page">
 <div class="container">
 <div class="row justify-content-center text-center mb-4 pt-4">
 <div class="col-lg-6">
-<img src="/assets/images/logo-header.png" alt="">
+<picture><source srcset="/assets/images/320w/logo-header_320w.webp" media="(max-width: 320px)" type="image/webp"><source srcset="/assets/images/640w/logo-header_640w.webp" media="(max-width: 640px)" type="image/webp"><source srcset="/assets/images/1024w/logo-header_1024w.webp" media="(max-width: 1024px)" type="image/webp"><source srcset="/assets/images/1920w/logo-header_1920w.webp" media="(max-width: 1920px)" type="image/webp"><img src="/assets/images/logo-header.webp" alt="" loading="lazy" decoding="async"></picture>
 </div>
 </div>
 <div class="row justify-content-center text-center mt-4 pb-4">
@@ -82,7 +80,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </ul>
 <h6>Vishal Projects Private Limited</h6>
 <address>
-#168, E-City & Fab City Road,
+#168, E-City &amp; Fab City Road,
 Tukkuguda, Exit 14 ORR,
 Hyderabad - 501359
 Telangana, INDIA.</address>
@@ -116,5 +114,5 @@ Reserved</p>
 <!--script End-->
 
 
-</body>
-</html>
+
+</body></html>

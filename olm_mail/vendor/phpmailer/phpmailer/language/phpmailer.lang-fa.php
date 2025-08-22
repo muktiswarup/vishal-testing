@@ -1,10 +1,9 @@
-<?php
+<!--?php
 
 /**
  * Persian/Farsi PHPMailer language file: refer to English translation for definitive list
  * @package PHPMailer
- * @author Ali Jazayeri <jaza.ali@gmail.com>
- * @author Mohammad Hossein Mojtahedi <mhm5000@gmail.com>
+ * @author Ali Jazayeri <jaza.ali@gmail.com--><html><head></head><body>* @author Mohammad Hossein Mojtahedi <mhm5000@gmail.com>
  */
 
 $PHPMAILER_LANG['authenticate']         = 'خطای SMTP: احراز هویت با شکست مواجه شد.';
@@ -26,3 +25,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'خطا در اتصال به SMTP.';
 $PHPMAILER_LANG['smtp_error']           = 'خطا در SMTP Server: ';
 $PHPMAILER_LANG['variable_set']         = 'امکان ارسال یا ارسال مجدد متغیر‌ها وجود ندارد: ';
 $PHPMAILER_LANG['extension_missing']    = 'افزونه موجود نیست: ';
+</mhm5000@gmail.com></body></html>

@@ -1,4 +1,4 @@
-<?php
+<!--?php
 
 /**
  * Polish PHPMailer language file: refer to English translation for definitive list
@@ -25,3 +25,4 @@ $PHPMAILER_LANG['smtp_connect_failed']  = 'SMTP Connect() zakończone niepowodze
 $PHPMAILER_LANG['smtp_error']           = 'Błąd SMTP: ';
 $PHPMAILER_LANG['variable_set']         = 'Nie można ustawić lub zmodyfikować zmiennej: ';
 $PHPMAILER_LANG['extension_missing']    = 'Brakujące rozszerzenie: ';
+--><html><head></head><body></body></html>
