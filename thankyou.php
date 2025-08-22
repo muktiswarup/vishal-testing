@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="icon" type="image/x-icon" href="./assets/images/logo-header.png">
+<link rel="icon" type="image/x-icon" href="/assets/images/logo-header.png">
 <!-- SET: Stylesheet -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <link href="css/bootstrap4hack.css" rel="stylesheet" type="text/css">
@@ -57,7 +57,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
 <div class="row justify-content-center text-center mb-4 pt-4">
 <div class="col-lg-6">
-<img src="./assets/images/logo-header.png" alt="">
+<img src="/assets/images/logo-header.png" alt="">
 </div>
 </div>
 <div class="row justify-content-center text-center mt-4 pb-4">

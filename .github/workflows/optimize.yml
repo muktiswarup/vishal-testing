@@ -51,10 +51,9 @@ jobs:
                 --remove-script-type-attributes \
                 --remove-tag-whitespace \
                 --use-short-doctype \
-                --minify-js false \
-                --minify-css true \
+                --minify-css \
                 "$file" \
-                --output "$file"
+                -o "$file"
             fi
           done
 
@@ -82,7 +81,7 @@ jobs:
             done
           fi
 
-      # 🚫 JS minification step removed
+      # 🚫 No JS minification step
 
       - name: Generate Responsive Images
         run: node js/resize-images.js

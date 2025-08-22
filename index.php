@@ -27,7 +27,7 @@ $fullurl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "
 ?>
 
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
 
 <!--Title-->
@@ -3090,13 +3090,6 @@ document.querySelectorAll('[style*=".webp"]').forEach(function(element) {
 });
 </script>
 
-<script src="./js/add-font-display-swap.js"></script>
-<script src="./js/add-img-dimensions.js"></script>
-<script src="./js/convert-webp.js"></script>
-<script src="./js/optimize.js"></script>
-<script src="./js/prune-unused-images.js"></script>
-<script src="./js/replace-img-with-picture.js"></script>
-<script src="./js/resize-images.js"></script>
 
 </body>
 </html>
