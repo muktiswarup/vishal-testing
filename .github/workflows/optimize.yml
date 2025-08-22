@@ -23,10 +23,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: |
-          npm install -g html-minifier-terser clean-css-cli terser purgecss cheerio sharp
-          npm install @squoosh/cli@0.7.1
-          npm ci --prefer-offline --no-audit
+        run: npm ci --prefer-offline --no-audit
 
       - name: Create optimized directory
         run: mkdir -p optimized
@@ -46,7 +43,7 @@ jobs:
           find . \( -iname "*.html" -o -iname "*.php" \) -type f | while read -r file; do
             if [ -f "$file" ]; then
               echo "Minifying $file"
-              html-minifier-terser \
+              npx html-minifier-terser \
                 --collapse-whitespace \
                 --remove-comments \
                 --remove-optional-tags \
@@ -54,7 +51,7 @@ jobs:
                 --remove-script-type-attributes \
                 --remove-tag-whitespace \
                 --use-short-doctype \
-                --minify-js true \
+                --minify-js false \
                 --minify-css true \
                 "$file" \
                 --output "$file"
@@ -67,7 +64,7 @@ jobs:
           if [ -d css ]; then
             find css -iname "*.css" | while read -r file; do
               echo "Purging CSS: $file"
-              purgecss \
+              npx purgecss \
                 --css "$file" \
                 --content "**/*.php" "**/*.html" "**/*.js" \
                 --output "$(dirname "$file")" \
@@ -81,19 +78,11 @@ jobs:
           if [ -d css ]; then
             find css -iname "*.css" | while read -r file; do
               echo "Minifying CSS: $file"
-              cleancss --output "$file" "$file"
+              npx cleancss --output "$file" "$file"
             done
           fi
 
-      - name: Minify JavaScript
-        run: |
-          cd optimized
-          if [ -d js ]; then
-            find js -iname "*.js" | while read -r file; do
-              echo "Minifying JS: $file"
-              terser "$file" --compress drop_console=true,drop_debugger=true --mangle --output "$file"
-            done
-          fi
+      # 🚫 JS minification step removed
 
       - name: Generate Responsive Images
         run: node js/resize-images.js
@@ -172,7 +161,7 @@ jobs:
           echo "- Total size: $(du -sh . | cut -f1)" >> optimization-report.md
 
       - name: Configure git to use GITHUB_TOKEN
-        run: git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/KommineniCharan/emnar.git
+        run: git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/muktiswarup/vishal-testing.git
 
       - name: Commit and push optimized files
         run: |
@@ -187,7 +176,7 @@ jobs:
           git add .
           git commit -m "🚀 Optimized website assets
 
-          - Minified HTML, CSS, and JavaScript
+          - Minified HTML and CSS
           - Optimized images with WebP conversion
           - Generated responsive images
           - Added lazy loading to images
