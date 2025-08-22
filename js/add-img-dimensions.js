@@ -5,9 +5,7 @@ const glob = require("glob");
 const cheerio = require("cheerio");
 const sharp = require("sharp");
 
-// Always use project root (parent of /js/)
-const projectRoot = path.resolve(__dirname, "..");
-
+const projectRoot = path.resolve(".");
 const files = glob.sync("**/*.{html,php}", {
   cwd: projectRoot,
   absolute: true,
@@ -21,10 +19,11 @@ async function addDimensions() {
 
     const imgs = $("img");
     for (let i = 0; i < imgs.length; i++) {
-      const $img = $(imgs[i]);
+      const img = imgs[i];
+      const $img = $(img);
 
       if (!$img.attr("width") || !$img.attr("height")) {
-        const src = $img.attr("src");
+        let src = $img.attr("src");
         if (!src) continue;
 
         // Resolve relative to file location
@@ -32,7 +31,6 @@ async function addDimensions() {
           path.dirname(file),
           src.split("?")[0].split("#")[0]
         );
-
         if (!fs.existsSync(imgPath)) continue;
 
         try {

@@ -1,13 +1,10 @@
-// js/convert-webp.js
+// convert-webp.js
 const sharp = require("sharp");
 const fs = require("fs");
 const path = require("path");
 const glob = require("glob");
 
-// Always point to project root (parent of /js/)
-const projectRoot = path.resolve(__dirname, "..");
-
-// Find all jpg, jpeg, png inside any "images" folder
+const projectRoot = path.resolve(".");
 const imageFiles = glob.sync("**/images/**/*.{jpg,jpeg,png}", {
   cwd: projectRoot,
   nodir: true,

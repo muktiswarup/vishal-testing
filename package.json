@@ -11,7 +11,8 @@
     "build": "npm run optimize",
     "test:performance": "npm run lhci",
     "optimize:images": "node js/optimize-images.js",
-    "add:lazyload": "node js/add-lazyload.js"
+    "add:lazyload": "node js/add-lazyload.js",
+    "generate-lockfile": "node generate-lockfile.js"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
@@ -23,10 +24,14 @@
     "fs-extra": "^11.1.1",
     "glob": "^10.2.7",
     "html-minifier-terser": "^7.0.0",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^7.0.0",
     "lighthouse": "^10.0.0",
     "postcss": "^8.4.25",
-    "sharp": "^0.32.6",
-    "serve": "^14.2.1"
+    "purgecss": "^5.0.0",
+    "sharp": "^0.32.6"
   },
   "engines": {
     "node": ">=18.0.0",

@@ -1,4 +1,4 @@
-// js/optimize.js
+// scripts/optimize.js
 const fs = require("fs-extra");
 const path = require("path");
 const glob = require("glob");
@@ -8,12 +8,14 @@ const postcss = require("postcss");
 const purgecss = require("@fullhuman/postcss-purgecss");
 const cssnano = require("cssnano");
 const sharp = require("sharp");
+const imagemin = require("imagemin");
+const imageminWebp = require("imagemin-webp");
+const imageminAvif = require("imagemin-avif");
+const imageminMozjpeg = require("imagemin-mozjpeg");
+const imageminPngquant = require("imagemin-pngquant");
 
-// Always resolve project root (parent of /js/)
-const projectRoot = path.resolve(__dirname, "..");
-
-const SRC_DIR = path.join(projectRoot, "emnar-pharma");
-const OUT_DIR = path.join(projectRoot, "optimized");
+const SRC_DIR = "emnar-pharma";
+const OUT_DIR = "optimized";
 const IMG_WIDTHS = [320, 640, 1024];
 
 async function ensureOut() {
@@ -38,10 +40,10 @@ async function minifyHtmlPhpFiles() {
           keepClosingSlash: true,
           minifyCSS: true,
           minifyJS: false, // 🚫 disable JS minification
-          ignoreCustomFragments: [/<\?php[\s\S]*?\?>/], // 🚀 keep PHP safe
+          ignoreCustomFragments: [/<\?php[\s\S]*?\?>/], // 🚀 Don't touch PHP tags
         });
         await fs.writeFile(file, minified, "utf8");
-      } catch {
+      } catch (e) {
         console.warn(`Skipping minify for ${file} (likely PHP issue)`);
       }
     })
@@ -50,7 +52,9 @@ async function minifyHtmlPhpFiles() {
 
 async function processCssFiles() {
   const cssFiles = glob.sync(`${OUT_DIR}/**/*.css`);
-  const contentFiles = glob.sync(`${OUT_DIR}/**/*.{html,php,js}`, { nodir: true });
+  const contentFiles = glob.sync(`${OUT_DIR}/**/*.{html,php,js}`, {
+    nodir: true,
+  });
 
   const purge = purgecss({
     content: contentFiles,
@@ -83,21 +87,26 @@ async function processCssFiles() {
 }
 
 async function optimizeImages() {
-  const imgFiles = glob.sync(`${OUT_DIR}/images/**/*.{png,jpg,jpeg}`, { nodir: true });
-
+  const imgFiles = glob.sync(`${OUT_DIR}/images/**/*.{png,jpg,jpeg}`, {
+    nodir: true,
+  });
   await Promise.all(
     imgFiles.map(async (srcPath) => {
       const dir = path.dirname(srcPath);
       const base = path.basename(srcPath, path.extname(srcPath));
 
       // optimize original
-      const buffer = await sharp(srcPath)
-        .jpeg({ quality: 78 })
-        .png({ quality: 80, compressionLevel: 8 })
-        .toBuffer();
-      await fs.writeFile(srcPath, buffer);
+      const originalOptimized = await imagemin([srcPath], {
+        plugins: [
+          imageminMozjpeg({ quality: 78 }),
+          imageminPngquant({ quality: [0.7, 0.85] }),
+        ],
+      });
+      if (originalOptimized[0]) {
+        await fs.writeFile(srcPath, originalOptimized[0].data);
+      }
 
-      // responsive webp + avif
+      // responsive sizes + formats
       await Promise.all(
         IMG_WIDTHS.map(async (w) => {
           await sharp(srcPath)
@@ -124,24 +133,7 @@ async function transformHtmlImages() {
 
       $("img").each((_, el) => {
         const $el = $(el);
-        const src = $el.attr("src");
-        if (!src) return;
-
-        const ext = path.extname(src);
-        const base = path.basename(src, ext);
-
-        // add lazy-loading
         if (!$el.attr("loading")) $el.attr("loading", "lazy");
-
-        // replace <img> with <picture>
-        const picture = `
-          <picture>
-            <source srcset="images/${base}-320.webp 320w, images/${base}-640.webp 640w, images/${base}-1024.webp 1024w" type="image/webp">
-            <source srcset="images/${base}-320.avif 320w, images/${base}-640.avif 640w, images/${base}-1024.avif 1024w" type="image/avif">
-            <img src="${src}" loading="lazy" alt="${$el.attr("alt") || ""}">
-          </picture>
-        `;
-        $el.replaceWith(picture);
       });
 
       await fs.writeFile(file, $.html(), "utf8");
@@ -154,9 +146,10 @@ async function main() {
   await copyStatic();
   await minifyHtmlPhpFiles();
   await processCssFiles();
+  // 🚫 Removed JS minify step
   await optimizeImages();
   await transformHtmlImages();
-  console.log("Optimization complete (without JS minify).");
+  console.log("✅ Optimization complete (without JS minify).");
 }
 
 main();
