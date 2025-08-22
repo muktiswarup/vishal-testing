@@ -31,10 +31,10 @@ jobs:
       - name: Copy files to optimized directory
         run: |
           cp -r *.php optimized/ 2>/dev/null || echo "No PHP files found"
-          [ -d css ] && cp -r css optimized/ || echo "CSS directory not found"
-          [ -d js ] && cp -r js optimized/ || echo "JS directory not found"
-          [ -d images ] && cp -r images optimized/ || echo "Images directory not found"
-          [ -d fonts ] && cp -r fonts optimized/ || echo "Fonts directory not found"
+          [ -d css ] && cp -r css optimized/ || echo "css directory not found"
+          [ -d js ] && cp -r js optimized/ || echo "js directory not found"
+          [ -d images ] && cp -r images optimized/ || echo "images directory not found"
+          [ -d fonts ] && cp -r fonts optimized/ || echo "fonts directory not found"
           cp -r *.html optimized/ 2>/dev/null || echo "No HTML files found"
 
       - name: Minify HTML and PHP files
