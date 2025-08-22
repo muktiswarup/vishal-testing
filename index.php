@@ -3063,7 +3063,6 @@ function loadLiveChat() {
     };
   }
 }
-
 // Load LiveChat after the page has fully loaded
 window.addEventListener('load', function () {
   loadLiveChat();
@@ -3091,13 +3090,13 @@ document.querySelectorAll('[style*=".webp"]').forEach(function(element) {
 });
 </script>
 
-<!-- <script src="./js/add-font-display-swap.js"></script>
+<script src="./js/add-font-display-swap.js"></script>
 <script src="./js/add-img-dimensions.js"></script>
 <script src="./js/convert-webp.js"></script>
 <script src="./js/optimize.js"></script>
 <script src="./js/prune-unused-images.js"></script>
 <script src="./js/replace-img-with-picture.js"></script>
-<script src="./js/resize-images.js"></script> -->
+<script src="./js/resize-images.js"></script>
 
 </body>
 </html>
