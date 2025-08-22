@@ -7,7 +7,6 @@ const { minify: minifyHtml } = require("html-minifier-terser");
 const postcss = require("postcss");
 const purgecss = require("@fullhuman/postcss-purgecss");
 const cssnano = require("cssnano");
-const terser = require("terser");
 const sharp = require("sharp");
 const imagemin = require("imagemin");
 const imageminWebp = require("imagemin-webp");
@@ -40,7 +39,7 @@ async function minifyHtmlPhpFiles() {
           removeRedundantAttributes: true,
           keepClosingSlash: true,
           minifyCSS: true,
-          minifyJS: true,
+          minifyJS: false, // 🚫 disable JS minification
           ignoreCustomFragments: [/<\?php[\s\S]*?\?>/], // 🚀 Don't touch PHP tags
         });
         await fs.writeFile(file, minified, "utf8");
@@ -78,26 +77,11 @@ async function processCssFiles() {
   await Promise.all(
     cssFiles.map(async (file) => {
       let css = await fs.readFile(file, "utf8");
-      const out = await postcss([
-        purge,
-        cssnano({ preset: "default" }),
-      ]).process(css, { from: file, to: file });
+      const out = await postcss([purge, cssnano({ preset: "default" })]).process(
+        css,
+        { from: file, to: file }
+      );
       await fs.writeFile(file, out.css, "utf8");
-    })
-  );
-}
-
-async function minifyJsFiles() {
-  const jsFiles = glob.sync(`${OUT_DIR}/**/*.js`);
-  await Promise.all(
-    jsFiles.map(async (file) => {
-      const code = await fs.readFile(file, "utf8");
-      try {
-        const result = await terser.minify(code);
-        if (result.code) await fs.writeFile(file, result.code, "utf8");
-      } catch {
-        console.warn(`Skipping JS minify for ${file}`);
-      }
     })
   );
 }
@@ -162,10 +146,10 @@ async function main() {
   await copyStatic();
   await minifyHtmlPhpFiles();
   await processCssFiles();
-  await minifyJsFiles();
+  // 🚫 Removed JS minify step
   await optimizeImages();
   await transformHtmlImages();
-  console.log("✅ Optimization complete.");
+  console.log("✅ Optimization complete (without JS minify).");
 }
 
 main();
