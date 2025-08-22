@@ -1,4 +1,4 @@
-// scripts/optimize.js
+// js/optimize.js
 const fs = require("fs-extra");
 const path = require("path");
 const glob = require("glob");
@@ -12,7 +12,8 @@ const imagemin = require("imagemin");
 const imageminMozjpeg = require("imagemin-mozjpeg");
 const imageminPngquant = require("imagemin-pngquant");
 
-const SRC_DIR = "emnar-pharma";
+// Paths relative to root
+const SRC_DIR = ".";
 const OUT_DIR = "optimized";
 const IMG_WIDTHS = [320, 640, 1024];
 
@@ -22,7 +23,9 @@ async function ensureOut() {
 }
 
 async function copyStatic() {
-  await fs.copy(SRC_DIR, OUT_DIR);
+  await fs.copy(SRC_DIR, OUT_DIR, {
+    filter: (src) => !src.includes(`${OUT_DIR}`) && !src.includes(".github"),
+  });
 }
 
 async function minifyHtmlPhpFiles() {
@@ -37,12 +40,12 @@ async function minifyHtmlPhpFiles() {
           removeRedundantAttributes: true,
           keepClosingSlash: true,
           minifyCSS: true,
-          minifyJS: false, // 🚫 disable JS minification
-          ignoreCustomFragments: [/<\?php[\s\S]*?\?>/], // 🚀 Don't touch PHP tags
+          minifyJS: false, // ❌ no JS minify
+          ignoreCustomFragments: [/<\?php[\s\S]*?\?>/], // don’t break PHP
         });
         await fs.writeFile(file, minified, "utf8");
-      } catch (e) {
-        console.warn(`Skipping minify for ${file} (likely PHP issue)`);
+      } catch {
+        console.warn(`Skipping minify for ${file}`);
       }
     })
   );
@@ -90,17 +93,17 @@ async function optimizeImages() {
       const base = path.basename(srcPath, path.extname(srcPath));
 
       // optimize original
-      const originalOptimized = await imagemin([srcPath], {
+      const optimized = await imagemin([srcPath], {
         plugins: [
           imageminMozjpeg({ quality: 78 }),
           imageminPngquant({ quality: [0.7, 0.85] }),
         ],
       });
-      if (originalOptimized[0]) {
-        await fs.writeFile(srcPath, originalOptimized[0].data);
+      if (optimized[0]) {
+        await fs.writeFile(srcPath, optimized[0].data);
       }
 
-      // responsive sizes + formats
+      // responsive webp + avif
       await Promise.all(
         IMG_WIDTHS.map(async (w) => {
           await sharp(srcPath)
@@ -125,30 +128,27 @@ async function addImageDimensions() {
     const $ = cheerio.load(html, { decodeEntities: false });
     let modified = false;
 
-    const imgs = $("img");
-    for (let i = 0; i < imgs.length; i++) {
-      const img = imgs[i];
-      const $img = $(img);
-
+    $("img").each((_, el) => {
+      const $img = $(el);
       if (!$img.attr("width") || !$img.attr("height")) {
-        let src = $img.attr("src");
-        if (!src) continue;
+        const src = $img.attr("src");
+        if (!src) return;
 
         const imgPath = path.resolve(path.dirname(file), src.split("?")[0].split("#")[0]);
-        if (!fs.existsSync(imgPath)) continue;
+        if (!fs.existsSync(imgPath)) return;
 
         try {
-          const metadata = await sharp(imgPath).metadata();
-          if (metadata.width && metadata.height) {
-            $img.attr("width", metadata.width);
-            $img.attr("height", metadata.height);
-            modified = true;
-          }
-        } catch {
-          // ignore errors for missing/unreadable images
-        }
+          const metadata = sharp(imgPath).metadata();
+          metadata.then((meta) => {
+            if (meta.width && meta.height) {
+              $img.attr("width", meta.width);
+              $img.attr("height", meta.height);
+              modified = true;
+            }
+          });
+        } catch {}
       }
-    }
+    });
 
     if (modified) {
       await fs.writeFile(file, $.html(), "utf8");
@@ -179,11 +179,10 @@ async function main() {
   await copyStatic();
   await minifyHtmlPhpFiles();
   await processCssFiles();
-  // 🚫 Removed JS minify step
   await optimizeImages();
   await addImageDimensions();
   await transformHtmlImages();
-  console.log("✅ Optimization complete (without JS minify).");
+  console.log("✅ Optimization complete (JS not minified).");
 }
 
 main();
